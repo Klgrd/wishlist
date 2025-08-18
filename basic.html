@@ -102,9 +102,17 @@
       margin-top: 40px;
     }
 
+    .intro-text {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 15px;
+    }
+
     .basics-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 30px;
       margin-top: 30px;
     }
@@ -114,6 +122,11 @@
       padding: 25px;
       border-radius: 15px;
       border-left: 4px solid #ff6f61;
+      transition: transform 0.2s;
+    }
+
+    .basic-card:hover {
+      transform: translateY(-3px);
     }
 
     .basic-card h3 {
@@ -125,103 +138,75 @@
     .basic-item {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 10px;
-      padding: 8px 0;
-      border-bottom: 1px solid #e0e0e0;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 12px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
 
-    .basic-item:last-child {
-      border-bottom: none;
+    .basic-info {
+      flex: 1;
     }
 
-    .basic-label {
+    .basic-name {
       font-weight: 600;
       color: #333;
+      margin-bottom: 5px;
     }
 
-    .basic-value {
-      color: #666;
-    }
-
-    .consumables-section {
-      margin-top: 40px;
-    }
-
-    .consumables-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .consumable-card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-
-    .consumable-card:hover {
-      transform: translateY(-3px);
-    }
-
-    .consumable-icon {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-
-    .consumable-card h4 {
-      color: #ff6f61;
-      margin-bottom: 8px;
-    }
-
-    .consumable-card p {
+    .basic-description {
       font-size: 0.9em;
       color: #666;
     }
 
-    .routine-section {
+    .basic-price {
+      font-weight: bold;
+      color: #ff6f61;
+      margin: 0 15px;
+    }
+
+    .buy-btn {
+      background: #ff6f61;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .buy-btn:hover {
+      background: #e65b50;
+    }
+
+    .priority-high {
+      border-left: 4px solid #dc3545;
+    }
+
+    .priority-medium {
+      border-left: 4px solid #ffc107;
+    }
+
+    .priority-low {
+      border-left: 4px solid #28a745;
+    }
+
+    .category-section {
       margin-top: 40px;
     }
 
-    .routine-timeline {
-      background: #f8f9fa;
-      padding: 30px;
-      border-radius: 15px;
-      margin-top: 20px;
-    }
-
-    .timeline-item {
+    .category-title {
       display: flex;
       align-items: center;
+      gap: 10px;
       margin-bottom: 20px;
-      padding: 15px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    .timeline-time {
-      background: #ff6f61;
-      color: white;
-      padding: 8px 12px;
-      border-radius: 20px;
-      font-weight: bold;
-      margin-right: 20px;
-      min-width: 80px;
-      text-align: center;
-    }
-
-    .timeline-content h4 {
-      color: #ff6f61;
-      margin-bottom: 5px;
-    }
-
-    .timeline-content p {
-      margin: 0;
-      color: #666;
+    .category-icon {
+      font-size: 1.5em;
     }
 
     /* Footer */
@@ -248,18 +233,14 @@
         grid-template-columns: 1fr;
       }
 
-      .consumables-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
-
-      .timeline-item {
+      .basic-item {
         flex-direction: column;
         text-align: center;
+        gap: 10px;
       }
 
-      .timeline-time {
-        margin-right: 0;
-        margin-bottom: 10px;
+      .basic-price {
+        margin: 0;
       }
     }
   </style>
@@ -280,152 +261,152 @@
 
   <div class="container">
     <header>
-      <h1>Mes basics du quotidien 🛒</h1>
-      <p>Mes habitudes, consommables et routine de tous les jours</p>
+      <h1>Mes basics & consommables 🛒</h1>
+      <p>Des petits cadeaux utiles pour mon quotidien</p>
     </header>
 
     <div class="basic-content">
-      <div class="basics-grid">
-        <div class="basic-card">
-          <h3>🍽️ Alimentation</h3>
-          <div class="basic-item">
-            <span class="basic-label">Petit-déjeuner :</span>
-            <span class="basic-value">Café + tartines</span>
-          </div>
-          <div class="basic-item">
-            <span class="basic-label">Déjeuner :</span>
-            <span class="basic-value">Restaurant/sandwich</span>
-          </div>
-          <div class="basic-item">
-            <span class="basic-label">Dîner :</span>
-            <span class="basic-value">Cuisine maison</span>
-          </div>
-          <div class="basic-item">
-            <span class="basic-label">Snacks :</span>
-            <span class="basic-value">Fruits, noix</span>
-          </div>
-        </div>
+      <div class="intro-text">
+        <h3>💡 Comment ça marche ?</h3>
+        <p>Voici une liste de mes consommables préférés que vous pouvez m'offrir. 
+        Cliquez sur "Acheter" pour être redirigé vers le site où vous pouvez les trouver.</p>
+      </div>
 
-        <div class="basic-card">
-          <h3>🚰 Boissons</h3>
-          <div class="basic-item">
-            <span class="basic-label">Café :</span>
-            <span class="basic-value">2-3 tasses/jour</span>
-          </div>
-          <div class="basic-item">
-            <span class="basic-label">Eau :</span>
-            <span class="basic-value">1.5L minimum</span>
-          </div>
-          <div class="basic-item">
-            <span class="basic-label">Thé :</span>
-            <span class="basic-value">Thé vert bio</span>
-          </div>
-          <div class="basic-item">
-            <span class="basic-label">Alcool :</span>
-            <span class="basic-value">Weekends uniquement</span>
-          </div>
+      <div class="category-section">
+        <div class="category-title">
+          <span class="category-icon">☕</span>
+          <h2>Café & Boissons</h2>
         </div>
-
-        <div class="basic-card">
-          <h3>🧴 Hygiène & Soins</h3>
-          <div class="basic-item">
-            <span class="basic-label">Shampoing :</span>
-            <span class="basic-value">Bio, sans sulfates</span>
-          </div>
-          <div class="basic-item">
-            <span class="basic-label">Dentifrice :</span>
-            <span class="basic-value">Fluoré, menthe</span>
-          </div>
-          <div class="basic-item">
-            <span class="basic-label">Déodorant :</span>
-            <span class="basic-value">Roll-on naturel</span>
-          </div>
-          <div class="basic-item">
-            <span class="basic-label">Crème visage :</span>
-            <span class="basic-value">Hydratante SPF</span>
+        <div class="basics-grid">
+          <div class="basic-card priority-high">
+            <h3>Grains de café premium</h3>
+            <div class="basic-item">
+              <div class="basic-info">
+                <div class="basic-name">Café en grains bio</div>
+                <div class="basic-description">Grains frais, torréfaction moyenne</div>
+              </div>
+              <div class="basic-price">15€</div>
+              <a href="https://www.amazon.fr" target="_blank" class="buy-btn">Acheter</a>
+            </div>
+            <div class="basic-item">
+              <div class="basic-info">
+                <div class="basic-name">Thé vert bio</div>
+                <div class="basic-description">Thé vert japonais, sachets</div>
+              </div>
+              <div class="basic-price">8€</div>
+              <a href="https://www.amazon.fr" target="_blank" class="buy-btn">Acheter</a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="consumables-section">
-        <h2>Mes consommables préférés</h2>
-        <div class="consumables-grid">
-          <div class="consumable-card">
-            <div class="consumable-icon">☕</div>
-            <h4>Café</h4>
-            <p>Grains frais, moulu maison</p>
-          </div>
-          <div class="consumable-card">
-            <div class="consumable-icon">🍞</div>
-            <h4>Pain</h4>
-            <p>Boulangerie artisanale</p>
-          </div>
-          <div class="consumable-card">
-            <div class="consumable-icon">🥛</div>
-            <h4>Lait</h4>
-            <p>Lait d'amande bio</p>
-          </div>
-          <div class="consumable-card">
-            <div class="consumable-icon">🧴</div>
-            <h4>Produits bio</h4>
-            <p>Cosmétiques naturels</p>
-          </div>
-          <div class="consumable-card">
-            <div class="consumable-icon">📱</div>
-            <h4>Électronique</h4>
-            <p>Chargeurs, câbles</p>
-          </div>
-          <div class="consumable-card">
-            <div class="consumable-icon">📚</div>
-            <h4>Livres</h4>
-            <p>Romans et essais</p>
+      <div class="category-section">
+        <div class="category-title">
+          <span class="category-icon">🧴</span>
+          <h2>Produits de soin</h2>
+        </div>
+        <div class="basics-grid">
+          <div class="basic-card priority-medium">
+            <h3>Cosmétiques bio</h3>
+            <div class="basic-item">
+              <div class="basic-info">
+                <div class="basic-name">Shampoing solide bio</div>
+                <div class="basic-description">Sans sulfates, parfum naturel</div>
+              </div>
+              <div class="basic-price">12€</div>
+              <a href="https://www.lush.fr" target="_blank" class="buy-btn">Acheter</a>
+            </div>
+            <div class="basic-item">
+              <div class="basic-info">
+                <div class="basic-name">Déodorant naturel</div>
+                <div class="basic-description">Roll-on, sans aluminium</div>
+              </div>
+              <div class="basic-price">9€</div>
+              <a href="https://www.lush.fr" target="_blank" class="buy-btn">Acheter</a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="routine-section">
-        <h2>Ma routine quotidienne</h2>
-        <div class="routine-timeline">
-          <div class="timeline-item">
-            <div class="timeline-time">7h00</div>
-            <div class="timeline-content">
-              <h4>Réveil</h4>
-              <p>Douche, petit-déjeuner, préparation</p>
+      <div class="category-section">
+        <div class="category-title">
+          <span class="category-icon">📚</span>
+          <h2>Livres & Culture</h2>
+        </div>
+        <div class="basics-grid">
+          <div class="basic-card priority-low">
+            <h3>Lectures</h3>
+            <div class="basic-item">
+              <div class="basic-info">
+                <div class="basic-name">Roman contemporain</div>
+                <div class="basic-description">Fiction, thriller ou science-fiction</div>
+              </div>
+              <div class="basic-price">18€</div>
+              <a href="https://www.fnac.com" target="_blank" class="buy-btn">Acheter</a>
+            </div>
+            <div class="basic-item">
+              <div class="basic-info">
+                <div class="basic-name">Livre technique</div>
+                <div class="basic-description">Programmation, design ou business</div>
+              </div>
+              <div class="basic-price">25€</div>
+              <a href="https://www.fnac.com" target="_blank" class="buy-btn">Acheter</a>
             </div>
           </div>
-          <div class="timeline-item">
-            <div class="timeline-time">8h30</div>
-            <div class="timeline-content">
-              <h4>Départ travail</h4>
-              <p>Transport en commun ou vélo</p>
+        </div>
+      </div>
+
+      <div class="category-section">
+        <div class="category-title">
+          <span class="category-icon">📱</span>
+          <h2>Électronique</h2>
+        </div>
+        <div class="basics-grid">
+          <div class="basic-card priority-medium">
+            <h3>Accessoires tech</h3>
+            <div class="basic-item">
+              <div class="basic-info">
+                <div class="basic-name">Câble USB-C</div>
+                <div class="basic-description">Câble de charge rapide, 2m</div>
+              </div>
+              <div class="basic-price">15€</div>
+              <a href="https://www.amazon.fr" target="_blank" class="buy-btn">Acheter</a>
+            </div>
+            <div class="basic-item">
+              <div class="basic-info">
+                <div class="basic-name">Chargeur sans fil</div>
+                <div class="basic-description">Chargeur Qi, 15W</div>
+              </div>
+              <div class="basic-price">25€</div>
+              <a href="https://www.amazon.fr" target="_blank" class="buy-btn">Acheter</a>
             </div>
           </div>
-          <div class="timeline-item">
-            <div class="timeline-time">12h00</div>
-            <div class="timeline-content">
-              <h4>Pause déjeuner</h4>
-              <p>Repas et petite marche</p>
+        </div>
+      </div>
+
+      <div class="category-section">
+        <div class="category-title">
+          <span class="category-icon">🍫</span>
+          <h2>Gourmandises</h2>
+        </div>
+        <div class="basics-grid">
+          <div class="basic-card priority-low">
+            <h3>Snacks & Friandises</h3>
+            <div class="basic-item">
+              <div class="basic-info">
+                <div class="basic-name">Chocolat noir bio</div>
+                <div class="basic-description">70% cacao, tablette 100g</div>
+              </div>
+              <div class="basic-price">4€</div>
+              <a href="https://www.monoprix.fr" target="_blank" class="buy-btn">Acheter</a>
             </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-time">18h00</div>
-            <div class="timeline-content">
-              <h4>Fin de journée</h4>
-              <p>Retour à la maison</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-time">19h00</div>
-            <div class="timeline-content">
-              <h4>Soirée</h4>
-              <p>Dîner, détente, projets perso</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-time">23h00</div>
-            <div class="timeline-content">
-              <h4>Coucher</h4>
-              <p>Lecture, sommeil</p>
+            <div class="basic-item">
+              <div class="basic-info">
+                <div class="basic-name">Amandes bio</div>
+                <div class="basic-description">Amandes naturelles, 200g</div>
+              </div>
+              <div class="basic-price">6€</div>
+              <a href="https://www.monoprix.fr" target="_blank" class="buy-btn">Acheter</a>
             </div>
           </div>
         </div>
