@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Site - Basic</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdf6f0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff6f61;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff6f61;
+    }
+
+    .nav-links a.active {
+      color: #ff6f61;
+    }
+
+    /* Main content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #ff6f61;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      color: #ff6f61;
+      margin: 30px 0 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .basic-content {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-top: 40px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .info-card {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 15px;
+      border-left: 4px solid #ff6f61;
+    }
+
+    .info-card h3 {
+      color: #ff6f61;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .info-value {
+      color: #666;
+    }
+
+    .hobbies-section {
+      margin-top: 40px;
+    }
+
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .hobby-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .hobby-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .hobby-icon {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .hobby-card h4 {
+      color: #ff6f61;
+      margin-bottom: 8px;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+      }
+      
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hobbies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">MonSite</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Index</a></li>
+        <li><a href="basic.html" class="active">Basic</a></li>
+        <li><a href="reves.html">Rêves</a></li>
+        <li><a href="informations.html">Mes informations</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>Informations de base 📋</h1>
+      <p>Quelques informations essentielles sur moi</p>
+    </header>
+
+    <div class="basic-content">
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>👤 Informations personnelles</h3>
+          <div class="info-item">
+            <span class="info-label">Nom :</span>
+            <span class="info-value">Votre nom</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Âge :</span>
+            <span class="info-value">25 ans</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Ville :</span>
+            <span class="info-value">Paris</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Pays :</span>
+            <span class="info-value">France</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>🎓 Formation</h3>
+          <div class="info-item">
+            <span class="info-label">Diplôme :</span>
+            <span class="info-value">Master en Informatique</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">École :</span>
+            <span class="info-value">École d'ingénieur</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Année :</span>
+            <span class="info-value">2023</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Spécialité :</span>
+            <span class="info-value">Développement web</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>💼 Expérience</h3>
+          <div class="info-item">
+            <span class="info-label">Poste actuel :</span>
+            <span class="info-value">Développeur web</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Entreprise :</span>
+            <span class="info-value">Tech Company</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Expérience :</span>
+            <span class="info-value">3 ans</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Secteur :</span>
+            <span class="info-value">Technologie</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hobbies-section">
+        <h2>Mes centres d'intérêt</h2>
+        <div class="hobbies-grid">
+          <div class="hobby-card">
+            <div class="hobby-icon">💻</div>
+            <h4>Programmation</h4>
+            <p>Développement web et applications</p>
+          </div>
+          <div class="hobby-card">
+            <div class="hobby-icon">📚</div>
+            <h4>Lecture</h4>
+            <p>Romans et livres techniques</p>
+          </div>
+          <div class="hobby-card">
+            <div class="hobby-icon">🎵</div>
+            <h4>Musique</h4>
+            <p>Écoute et découverte</p>
+          </div>
+          <div class="hobby-card">
+            <div class="hobby-icon">🏃‍♂️</div>
+            <h4>Sport</h4>
+            <p>Course à pied et fitness</p>
+          </div>
+          <div class="hobby-card">
+            <div class="hobby-icon">✈️</div>
+            <h4>Voyages</h4>
+            <p>Découverte de nouveaux pays</p>
+          </div>
+          <div class="hobby-card">
+            <div class="hobby-icon">🎮</div>
+            <h4>Jeux vidéo</h4>
+            <p>Jeux d'aventure et stratégie</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 MonSite. Tous droits réservés.</p>
+  </footer>
+</body>
+</html>
