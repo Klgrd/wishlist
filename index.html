@@ -13,19 +13,31 @@
     
     body {
       font-family: 'Segoe UI', sans-serif;
+      background: #1a1a1a;
+      color: #ffffff;
+      line-height: 1.6;
+      transition: all 0.3s ease;
+    }
+
+    body.light-mode {
       background: #fdf6f0;
       color: #333;
-      line-height: 1.6;
     }
 
     /* Navigation */
     nav {
-      background: #fff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background: #2d2d2d;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
       padding: 1rem 0;
       position: sticky;
       top: 0;
       z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    body.light-mode nav {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     .nav-container {
@@ -35,6 +47,30 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 20px;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5em;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      margin-left: 20px;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    body.light-mode .theme-toggle {
+      color: #333;
+    }
+
+    body.light-mode .theme-toggle:hover {
+      background: rgba(0, 0, 0, 0.1);
     }
 
     .logo {
@@ -51,7 +87,7 @@
 
     .nav-links a {
       text-decoration: none;
-      color: #333;
+      color: #ffffff;
       font-weight: 500;
       transition: color 0.3s;
     }
@@ -62,6 +98,10 @@
 
     .nav-links a.active {
       color: #ff6f61;
+    }
+
+    body.light-mode .nav-links a {
+      color: #333;
     }
 
     /* Main content */
@@ -90,10 +130,16 @@
     /* Category sections */
     .category-section {
       margin: 40px 0;
-      background: #fff;
+      background: #2d2d2d;
       border-radius: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    body.light-mode .category-section {
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     .category-header {
@@ -139,12 +185,17 @@
 
     .carousel-item {
       min-width: 280px;
-      background: #f8f9fa;
+      background: #3a3a3a;
       border-radius: 15px;
       padding: 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
       transition: transform 0.2s;
       flex-shrink: 0;
+    }
+
+    body.light-mode .carousel-item {
+      background: #f8f9fa;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .carousel-item:hover {
@@ -160,17 +211,14 @@
     }
 
     .item-description {
-      color: #666;
+      color: #cccccc;
       font-size: 0.9em;
       margin-bottom: 15px;
       line-height: 1.4;
     }
 
-    .item-description {
+    body.light-mode .item-description {
       color: #666;
-      font-size: 0.9em;
-      margin-bottom: 15px;
-      line-height: 1.4;
     }
 
     .offer-btn {
@@ -291,12 +339,15 @@
   <nav>
     <div class="nav-container">
       <div class="logo">UnCadeauPourKyky</div>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Ma liste</a></li>
-        <li><a href="basic.html">Mes Basics</a></li>
-        <li><a href="reves.html">Mes Rêves</a></li>
-        <li><a href="informations.html">Mes informations</a></li>
-      </ul>
+      <div style="display: flex; align-items: center;">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Ma liste</a></li>
+          <li><a href="basic.html">Mes Basics</a></li>
+          <li><a href="reves.html">Mes Rêves</a></li>
+          <li><a href="informations.html">Mes informations</a></li>
+        </ul>
+        <button class="theme-toggle" onclick="toggleTheme()" title="Basculer le thème">🌙</button>
+      </div>
     </div>
   </nav>
 
@@ -404,6 +455,38 @@
   </div>
 
   <script>
+    // Gestion du thème
+    function toggleTheme() {
+      const body = document.body;
+      const themeToggle = document.querySelector('.theme-toggle');
+      
+      if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        themeToggle.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.add('light-mode');
+        themeToggle.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Charger le thème sauvegardé ou utiliser le mode sombre par défaut
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme');
+      const body = document.body;
+      const themeToggle = document.querySelector('.theme-toggle');
+      
+      if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        themeToggle.textContent = '☀️';
+      } else {
+        // Mode sombre par défaut
+        body.classList.remove('light-mode');
+        themeToggle.textContent = '🌙';
+      }
+    });
+
     function scrollCarousel(carouselId, direction) {
       const carousel = document.getElementById(carouselId);
       const scrollAmount = 300; // Largeur approximative d'un item + gap
