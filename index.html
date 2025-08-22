@@ -184,23 +184,78 @@
     }
 
     .carousel-item {
-      min-width: 280px;
-      background: #3a3a3a;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      transition: transform 0.2s;
+      min-width: 320px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 25px;
+      backdrop-filter: blur(20px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       flex-shrink: 0;
+      position: relative;
+      overflow: visible;
+      margin: 20px 0;
     }
 
-    body.light-mode .carousel-item {
-      background: #f8f9fa;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    .carousel-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+      transform: scaleX(0);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .carousel-item:hover::before {
+      transform: scaleX(1);
     }
 
     .carousel-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: translateY(-10px) scale(1.02) rotate(2deg);
+      box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2);
+      border-color: rgba(255, 107, 107, 0.3);
+    }
+
+    body.light-mode .carousel-item {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    body.light-mode .carousel-item:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 15px;
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 10;
+    }
+
+    .carousel-item:hover .product-image {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    body.light-mode .product-image {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    body.light-mode .carousel-item:hover .product-image {
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .item-content {
+      margin-right: 100px;
     }
 
     .item-name {
@@ -366,12 +421,15 @@
       <div class="carousel-container">
         <div class="carousel" id="high-tech-carousel">
           <div class="carousel-item">
-            <div class="item-name">Manette Xbox Rouge</div>
-            <div class="item-description">
-              Xbox Manette sans Fil - Pulse Red Pour Xbox Series X, Xbox Series S, Xbox One
+            <img src="images/manette_xbox.png" alt="Manette Xbox Rouge" class="product-image">
+            <div class="item-content">
+              <div class="item-name">Manette Xbox Rouge</div>
+              <div class="item-description">
+                Xbox Manette sans Fil - Pulse Red Pour Xbox Series X, Xbox Series S, Xbox One
+              </div>
+              <div class="item-price">64,90 €</div>
+              <a href="https://www.amazon.fr/Manette-Xbox-rouge-sans-Fil/dp/B0F2N5WHT7?th=1" target="_blank" class="offer-btn">Offrir à Kylian</a>
             </div>
-            <div class="item-price">64,90 €</div>
-            <a href="https://www.amazon.fr/Manette-Xbox-rouge-sans-Fil/dp/B0F2N5WHT7?th=1" target="_blank" class="offer-btn">Offrir à Kylian</a>
           </div>
         </div>
         <div class="carousel-nav">
@@ -390,12 +448,15 @@
       <div class="carousel-container">
         <div class="carousel" id="bibliotheque-carousel">
           <div class="carousel-item">
-            <div class="item-name">Livre UFC</div>
-            <div class="item-description">
-              UFC - Le MMA de l'intérieur : SIMON, Antoine: Amazon.fr: Livres
+            <img src="images/livre_ufc.jpg" alt="Livre UFC" class="product-image">
+            <div class="item-content">
+              <div class="item-name">Livre UFC</div>
+              <div class="item-description">
+                UFC - Le MMA de l'intérieur : SIMON, Antoine: Amazon.fr: Livres
+              </div>
+              <div class="item-price">44,95 €</div>
+              <a href="https://www.amazon.fr/UFC-MMA-lint%C3%A9rieur-Antoine-SIMON/dp/2324035979/ref=sr_1_1?crid=1QK1H0LZ7AC3Z&dib=eyJ2IjoiMSJ9.MIbpsi1xwEBYyVo6TAU3MVApDaJJXUgPP24_e2KjPOU4EJm5DWCNI2-fEQO5sPC83XYSC1hv4haSey7G6F0gp43ukyIdqjZ3ScDkG9J9BiGhp51LEA3prIKAzojSd6cf96QLSTl4zPcVHBUujC1TeG1Jqq6oexRF2-b5LeQQmeqFJd7rTyKl05J77Lotm4RazZ3sZDba8W5940O6Z0Xu1FAi8yukB20eBFne_-Ki3uLpsY8GhRyhpRrC59AaV0nPtF_ub_JEhH6RjDgfKjvouRcS-9ao_colBi8VGdpDhaM.RfrewhxNQHSOzU7FlGgccmQUUieQLCIoP5Zw71IN_XU&dib_tag=se&keywords=ufc+le+mma+de+l%27int%C3%A9rieur&qid=1755826458&sprefix=Ufc+le+mma%2Caps%2C78&sr=8-1" target="_blank" class="offer-btn">Offrir à Kylian</a>
             </div>
-            <div class="item-price">44,95 €</div>
-            <a href="https://www.amazon.fr/UFC-MMA-lint%C3%A9rieur-Antoine-SIMON/dp/2324035979/ref=sr_1_1?crid=1QK1H0LZ7AC3Z&dib=eyJ2IjoiMSJ9.MIbpsi1xwEBYyVo6TAU3MVApDaJJXUgPP24_e2KjPOU4EJm5DWCNI2-fEQO5sPC83XYSC1hv4haSey7G6F0gp43ukyIdqjZ3ScDkG9J9BiGhp51LEA3prIKAzojSd6cf96QLSTl4zPcVHBUujC1TeG1Jqq6oexRF2-b5LeQQmeqFJd7rTyKl05J77Lotm4RazZ3sZDba8W5940O6Z0Xu1FAi8yukB20eBFne_-Ki3uLpsY8GhRyhpRrC59AaV0nPtF_ub_JEhH6RjDgfKjvouRcS-9ao_colBi8VGdpDhaM.RfrewhxNQHSOzU7FlGgccmQUUieQLCIoP5Zw71IN_XU&dib_tag=se&keywords=ufc+le+mma+de+l%27int%C3%A9rieur&qid=1755826458&sprefix=Ufc+le+mma%2Caps%2C78&sr=8-1" target="_blank" class="offer-btn">Offrir à Kylian</a>
           </div>
         </div>
         <div class="carousel-nav">
@@ -414,12 +475,14 @@
       <div class="carousel-container">
         <div class="carousel" id="dressing-carousel">
           <div class="carousel-item">
-            <div class="item-name">T-shirt Venum</div>
-            <div class="item-description">
-              T-shirt Dry-Tech Venum x Chimaev - Noir/Gris
+            <div class="item-content">
+              <div class="item-name">T-shirt Venum</div>
+              <div class="item-description">
+                T-shirt Dry-Tech Venum x Chimaev - Noir/Gris
+              </div>
+              <div class="item-price">49,99 €</div>
+              <a href="https://fr.venum.com/collections/venum-x-khamzat-chimaev-wild-borz/products/t-shirt-dry-tech-venum-x-chimaev-noir-gris" target="_blank" class="offer-btn">Offrir à Kylian</a>
             </div>
-            <div class="item-price">49,99 €</div>
-            <a href="https://fr.venum.com/collections/venum-x-khamzat-chimaev-wild-borz/products/t-shirt-dry-tech-venum-x-chimaev-noir-gris" target="_blank" class="offer-btn">Offrir à Kylian</a>
           </div>
         </div>
         <div class="carousel-nav">
@@ -438,12 +501,15 @@
       <div class="carousel-container">
         <div class="carousel" id="musique-carousel">
           <div class="carousel-item">
-            <div class="item-name">Guitare Acoustique</div>
-            <div class="item-description">
-              Yamaha C40 BL - Guitare acoustique classique
+            <img src="images/guitare.png" alt="Guitare Acoustique" class="product-image">
+            <div class="item-content">
+              <div class="item-name">Guitare Acoustique</div>
+              <div class="item-description">
+                Yamaha C40 BL - Guitare acoustique classique
+              </div>
+              <div class="item-price">129,00 €</div>
+              <a href="https://www.thomann.fr/yamaha_c40_bl.htm" target="_blank" class="offer-btn">Offrir à Kylian</a>
             </div>
-            <div class="item-price">129,00 €</div>
-            <a href="https://www.thomann.fr/yamaha_c40_bl.htm" target="_blank" class="offer-btn">Offrir à Kylian</a>
           </div>
         </div>
         <div class="carousel-nav">
