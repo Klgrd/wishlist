@@ -1,0 +1,68 @@
+html, body {
+    margin: 0;
+    box-sizing: border-box;
+    /* padding: 0; est redondant si margin est 0 sur body */
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #934caf;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+body {
+    /* justify-content et align-items n'ont pas d'effet sans display: flex */
+    background-color: #f0f0f0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.wishlist-item {
+    background-color: white;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 16px auto; /* Centre l'item horizontalement */
+    padding: 16px; 
+    max-width: 90%; /* Utilise 90% de la largeur de l'écran, avec un max absolu */
+    width: 320px; /* Une largeur de base pour la carte */
+    display: flex; /* Active le mode Flexbox */
+    flex-direction: column; /* Aligne les enfants verticalement */
+    align-items: center; /* Centre les enfants horizontalement */
+}
+
+.wishlist-item a {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* S'assure que le lien prend toute la largeur pour bien centrer l'image */
+}
+
+.wishlist-item img {
+    width: 80%; /* L'image prend 80% de la largeur de son conteneur <a> */
+    height: 150px; /* On définit une hauteur fixe pour toutes les images */
+    object-fit: contain; /* L'image est redimensionnée pour tenir dans le conteneur sans être déformée */
+    margin-bottom: 10px; /* L'alignement est déjà géré par flexbox */
+}
+
+.item-title, .item-price, .tag {
+    /* display: block; et text-align: center; ne sont plus nécessaires grâce à Flexbox */
+    margin-bottom: 8px; /* Ajoute un petit espace en dessous de chaque élément */
+}
+
+.tag {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    /* display: inline-block; n'est plus nécessaire */
+}
