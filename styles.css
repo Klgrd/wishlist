@@ -1,10 +1,11 @@
 html, body {
     margin: 0;
-    box-sizing: border-box;
-    /* padding: 0; est redondant si margin est 0 sur body */
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f5f7;
+    color: #333;
+    box-sizing: border-box;
 }
 
 header {
@@ -12,49 +13,65 @@ header {
     color: white;
     padding: 10px 0;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
-body {
-    /* justify-content et align-items n'ont pas d'effet sans display: flex */
-    background-color: #f0f0f0;
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 0 16px;
 }
 
 
 .wishlist-item {
     background-color: white;
-    box-sizing: border-box;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin: 16px auto; /* Centre l'item horizontalement */
     padding: 16px; 
-    max-width: 90%; /* Utilise 90% de la largeur de l'écran, avec un max absolu */
-    width: 320px; /* Une largeur de base pour la carte */
     display: flex; /* Active le mode Flexbox */
     flex-direction: column; /* Aligne les enfants verticalement */
     align-items: center; /* Centre les enfants horizontalement */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.wishlist-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .wishlist-item a {
     display: flex;
     justify-content: center;
     width: 100%; /* S'assure que le lien prend toute la largeur pour bien centrer l'image */
+    margin-bottom: 16px;
 }
 
 .wishlist-item img {
     width: 80%; /* L'image prend 80% de la largeur de son conteneur <a> */
-    height: 150px; /* On définit une hauteur fixe pour toutes les images */
+    height: 180px; /* On définit une hauteur fixe pour toutes les images */
     object-fit: contain; /* L'image est redimensionnée pour tenir dans le conteneur sans être déformée */
-    margin-bottom: 10px; /* L'alignement est déjà géré par flexbox */
 }
 
-.item-title, .item-price, .tag {
-    /* display: block; et text-align: center; ne sont plus nécessaires grâce à Flexbox */
+.item-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.item-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #934caf;
     margin-bottom: 8px; /* Ajoute un petit espace en dessous de chaque élément */
 }
 
@@ -64,5 +81,5 @@ ul {
     padding: 2px 8px;
     border-radius: 12px;
     font-size: 0.8em;
-    /* display: inline-block; n'est plus nécessaire */
+    margin-bottom: 12px;
 }
