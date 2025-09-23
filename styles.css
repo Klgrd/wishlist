@@ -1,23 +1,38 @@
+:root {
+    --background-color: #FFFFFF;
+    --card-background: #FFFFFF;
+    --text-color: #111111;
+    --text-secondary: #666666;
+    --primary-accent: #111111;
+    --border-color: #EAEAEA;
+    --subtle-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+    --strong-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f5f7;
-    color: #333;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
     box-sizing: border-box;
 }
 
-header {
-    background-color: #934caf;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-    margin-bottom: 2rem;
+body {
+    min-height: 100vh; /* Utilise la hauteur de la fenêtre comme hauteur minimale */
 }
 
 *, *:before, *:after {
     box-sizing: inherit;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: none;
 }
 
 ul {
@@ -33,53 +48,121 @@ ul {
 
 
 .wishlist-item {
-    background-color: white;
+    background-color: var(--card-background);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--subtle-shadow);
     padding: 16px; 
-    display: flex; /* Active le mode Flexbox */
-    flex-direction: column; /* Aligne les enfants verticalement */
-    align-items: center; /* Centre les enfants horizontalement */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .wishlist-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+    box-shadow: #661a75 0px 3px 15px;
+    border: 3px solid #661a75;
 }
 
 .wishlist-item a {
     display: flex;
     justify-content: center;
-    width: 100%; /* S'assure que le lien prend toute la largeur pour bien centrer l'image */
+    width: 100%;
     margin-bottom: 16px;
 }
 
 .wishlist-item img {
-    width: 80%; /* L'image prend 80% de la largeur de son conteneur <a> */
-    height: 180px; /* On définit une hauteur fixe pour toutes les images */
-    object-fit: contain; /* L'image est redimensionnée pour tenir dans le conteneur sans être déformée */
+    width: 80%;
+    height: 180px;
+    object-fit: contain;
 }
 
 .item-title {
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
     margin-bottom: 12px;
 }
 
 .item-price {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #934caf;
-    margin-bottom: 8px; /* Ajoute un petit espace en dessous de chaque élément */
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
 }
 
 .tag {
-    background-color: #e0e0e0;
-    color: #333;
-    padding: 2px 8px;
-    border-radius: 12px;
+    background-color: #F5F5F5;
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 99px;
     font-size: 0.8em;
     margin-bottom: 12px;
+}
+
+.filter-controls {
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: 16px;
+    position: relative;
+}
+
+.filter-options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    z-index: 10;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+.filter-toggle-button, .sort-button {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.2s ease, color 0.3s ease;
+}
+
+.filter-toggle-button:hover, .sort-button:hover {
+    background-color: #661a75;
+    color: var(--background-color);
+    border-color: #661a75;
+    box-shadow: #661a75 0px 2px 10px;
+    text-shadow: 0px 0px 5px #ffffff
+;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 40px;
 }

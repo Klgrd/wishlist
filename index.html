@@ -6,49 +6,55 @@
         <link rel="stylesheet" href="styles.css">
         <title>WishList</title>
     </head>
-    <header><h1>WishList</h1></header>
 
     <body>
+        <header><h1>WishList</h1></header>
         <main>
-            <ul>
+            <div class="filter-controls">
+                <button class="filter-toggle-button" aria-expanded="false">Filtrer</button>
+                <div id="filter-options" class="filter-options-container hidden">
+                    <button class="sort-button" data-sort="asc">Prix Croissant</button>
+                    <button class="sort-button" data-sort="desc">Prix Décroissant</button>
+                </div>
+            </div>
+            <ul id="wishlist">
                 <li class="wishlist-item">
-                    <span class="item-title">Huwawei GT6 Pro</span>
                     <a href="https://consumer.huawei.com/fr/wearables/watch-gt6-pro/buy/" target="_blank">
                     <img src="https://shop-cdncname.huawei.com/fr/pms/uomcdn/FRHW/pms/202509/gbom/6942103168185/800_800_F4B444815FACB76176D13F544FA410F2mp.webp" alt="Montre Huwawei GT6 Pro" >
                     </a>
-                    <span class="tag">Noir</span>
+                    <span class="item-title">Huwawei GT6 Pro</span>
                     <span class="item-price">379,99 €</span>
+                    <span class="tag">Noir</span>
                 </li>
                 <li class="wishlist-item">
-                    <span class="item-title">Guitare Yamaha C40 BL</span>
                     <a href="https://www.thomann.fr/yamaha_c40_bl.htm" target="_blank">
                     <img src="https://fast-images.static-thomann.de/pics/bdb/_24/247286/6232049_800.jpg" alt="Guitare Yamaha C40 BL">
                     </a>
+                    <span class="item-title">Guitare Yamaha C40 BL</span>
                     <span class="item-price">129,00 €</span>
                 </li>
                 <li class="wishlist-item">
-                    <span class="item-title">T-shirt MMA FMMAF Bar Tack</span>
                     <a href="https://bar-tack.com/products/rashguards-officiel-bar-tack-x-fmmaf-grade-blanc"
                      target="_blank">
                     <img src="https://www.dragonsports.eu/710036-thickbox_default/rashguards-drift-grade-de-couleur-fmmaf-x-bar-tack.jpg" 
                     alt="T-shirt MMA FMMAF Bar Tack">
                     </a>
-                    <span class="tag">M</span>
+                    <span class="item-title">T-shirt MMA FMMAF Bar Tack</span>
                     <span class="item-price">48,90 €</span>
+                    <span class="tag">M</span>
                 </li>
                 <li class="wishlist-item">
-                    <span class="item-title">Short MMA FMMAF Bar Tack</span>
                     <a href="https://bar-tack.com/products/short-de-mma-bar-tack-fmmaf-aeromax-drift-noir"
                      target="_blank">
                     <img src="https://www.dragonsports.eu/7102214-thickbox_default/short
                     -de-mma-aeromax-bar-tack-x-fmmaf-bar-tack.jpg" 
                     alt="Short MMA FMMAF Bar Tack">
                     </a>
-                    <span class="tag">M</span>
+                    <span class="item-title">Short MMA FMMAF Bar Tack</span>
                     <span class="item-price">54,90 €</span>
+                    <span class="tag">M</span>
                 </li>
                 <li class="wishlist-item">
-                    <span class="item-title">Mini Vidéo-projecteur 4k</span>
                     <a href="https://www.amazon.fr/Vid%C3%A9oprojecteur-Projecteur-Portable-
                     Keystone-Compatible/dp/B0F3JFTFBY/ref=sr_1_6?__mk_fr_FR=%C3%85M%C3%85%C5%
                     BD%C3%95%C3%91&crid=1H7WG8KB6KLXH&dib=eyJ2IjoiMSJ9.ppeOau7c3XROSYuKOVLFU2
@@ -62,10 +68,10 @@
                     <img src="https://m.media-amazon.com/images/I/71+VkGbHcKL._AC_SL1500_.jpg" 
                     alt="Mini Vidéo-projecteur 4k">
                     </a>
+                    <span class="item-title">Mini Vidéo-projecteur 4k</span>
                     <span class="item-price">49,63 €</span>
                 </li>
                                 <li class="wishlist-item">
-                    <span class="item-title">Trépied Automatique</span>
                     <a href="https://www.amazon.fr/yAyusi-Automatique-T%C3%A9l%C3%A9phone-R%C3
                     %A9tractable-Enregistrement/dp/B0D3V3H1KY/ref=sr_1_6?crid=1NPCBDBZY6ZBI&di
                     b=eyJ2IjoiMSJ9.wlL9re3xHGBr-C4umyGBM2cO_PVavThAcnka7kpvING289bAn_pG_dFqwFl
@@ -79,9 +85,14 @@
                     <img src="https://m.media-amazon.com/images/I/61Gw-VQphjL._AC_SL1500_.jpg" 
                     alt="Trépied Automatique">
                     </a>
+                    <span class="item-title">Trépied Automatique</span>
                     <span class="item-price">37, 99 €</span>
                 </li>
             </ul>
         </main>
+        <footer>
+            <p>© 2025 Kylian WishList. Touts droits réservés.</p>
+        </footer>
+        <script src="scripte.js"></script>
     </body>
 </html>
