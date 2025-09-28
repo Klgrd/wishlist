@@ -52,3 +52,13 @@ document.addEventListener('click', () => {
     filterOptions.classList.add('hidden');
     toggleButton.setAttribute('aria-expanded', 'false');
 });
+
+wishlist.addEventListener('click', (event) => {
+    if (event.target.classList.contains('learn-more-btn')) {
+        const item = event.target.closest('.wishlist-item');
+        if (item) {
+            const details = item.querySelector('.item-details');
+            details.classList.toggle('hidden');
+        }
+    }
+});
