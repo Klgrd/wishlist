@@ -14,6 +14,7 @@ function renderWishlist(items) {
         listItem.className = 'wishlist-item';
 
         // Contenu HTML basé sur les données de l'item
+        // 1. On gère l'affichage du prix
         let priceHtml = '';
         if (item.price !== null) {
             priceHtml = `<span class="item-price">${formatPrice(item.price)}`;
@@ -21,16 +22,20 @@ function renderWishlist(items) {
                 priceHtml += ` <del>${formatPrice(item.originalPrice)}</del>`;
             }
             priceHtml += `</span>`;
-        } else {
-            priceHtml = `
+        }
+
+        // 2. On gère l'affichage du tag
+        const tagHtml = item.tag ? `<span class="tag">${item.tag}</span>` : '';
+
+        // 3. On gère l'affichage des détails (bouton + texte) s'ils existent
+        let detailsHtml = '';
+        if (item.details) {
+            detailsHtml = `
                 <button class="learn-more-btn">En savoir plus</button>
                 <div class="item-details hidden">
                     <p>${item.details}</p>
-                </div>
-            `;
+                </div>`;
         }
-
-        const tagHtml = item.tag ? `<span class="tag">${item.tag}</span>` : '';
 
         const linkOpen = item.productUrl ? `<a href="${item.productUrl}" target="_blank">` : '<a>';
         const linkClose = '</a>';
@@ -42,6 +47,7 @@ function renderWishlist(items) {
             <span class="item-title">${item.title}</span>
             ${priceHtml}
             ${tagHtml}
+            ${detailsHtml}
         `;
         wishlist.appendChild(listItem);
     });

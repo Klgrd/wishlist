@@ -66,5 +66,13 @@
       "imageUrl": "https://marketplace.canva.com/CNbUc/MAF16MCNbUc/1/tl/canva-bed-outline-icon-MAF16MCNbUc.png",
       "productUrl": null,
       "details": "Le choix du modèle se fera après notre déménagement, afin de nous assurer qu'il s'intègre parfaitement à notre nouvel appartement."
+    },
+    {
+      "id": "shaver",
+      "title": "Rasoir Tondeuse Braun",
+      "price": 139.99,
+      "imageUrl": "https://images.ctfassets.net/ezxmov85cyn1/5WpEdUyEWsBNZNWZoWEqBJ/05169eaf5991678734efafec27bd86b4/Braun_FR_AIO7580_Primary_PDP.jpg?fm=avif&w=110",
+      "productUrl": "https://fr.braun.com/fr-fr/male-grooming/stylers-and-trimmers/all-in-one-trimmers/all-in-one-series-7-aio7580",
+      "details": "Il y à souvent des promos."
     }
 ]
